@@ -2754,12 +2754,12 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "bf6fbd68-f713-4648-950a-c751f3067944",
+   "cell_type": "markdown",
+   "id": "49cc6e3c-a94f-400f-8790-c3e731921e8e",
    "metadata": {},
-   "outputs": [],
-   "source": []
+   "source": [
+    "Make predictions o"
+   ]
   },
   {
    "cell_type": "code",
@@ -2767,7 +2767,10 @@
    "id": "8b10715a-7745-4297-9673-b1e1a114655f",
    "metadata": {},
    "outputs": [],
-   "source": []
+   "source": [
+    "players_prediction<_predict(players_fit, players_test)|>\n",
+    "bind_cols(players_test)"
+   ]
   }
  ],
  "metadata": {
