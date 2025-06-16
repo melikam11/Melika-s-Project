@@ -2667,13 +2667,21 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "id": "409a8dea-7857-4af0-a1e0-d484d01db378",
+   "metadata": {},
+   "source": [
+    "Now that we have created our model and found our best k value we can evaluate our model and the quality of its predictions on our test data. First we must create a model with the best k value we found."
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": null,
-   "id": "e6baf161-f1a1-4e3b-9602-f62aad4ed8dd",
+   "id": "99cbf8b5-22cc-41bf-ab5a-c0ad1ef9782e",
    "metadata": {},
    "outputs": [],
    "source": [
-    "Now that we have created our model and found our best k value we ca"
+    "test_model<-recipe"
    ]
   }
  ],
