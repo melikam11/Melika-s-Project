@@ -2364,12 +2364,12 @@
    "id": "19e7b62a-38d9-4641-93ef-09072efd24d3",
    "metadata": {},
    "source": [
-    "Now we will create our recipe and also scale our predictor variables, hours spent playing and experience.  Although experience is a categorical variable and the time the players spent  is numerical we don't need to necessarily scale out variables. However, its good to scale anyways even though we are not directly comparing two variables with different scales. "
+    "Now we will create our recipe and also scale our predictor variables, hours spent playing and experience. Although experience is a categorical variable and the time the players spent  is numerical we don't need to necessarily scale our variables. However, its good to scale the numerical anyways even though we are not directly comparing two numerical variables with different scales. "
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 51,
+   "execution_count": 52,
    "id": "b771a192-f0f1-406c-81b7-df9dd7dedfb9",
    "metadata": {},
    "outputs": [
@@ -2394,17 +2394,17 @@
       "\n",
       "── Operations \n",
       "\n",
-      "\u001b[36m•\u001b[39m Scaling for: \u001b[34mall_predictors()\u001b[39m\n",
+      "\u001b[36m•\u001b[39m Scaling for: \u001b[34mplayed_hours\u001b[39m\n",
       "\n",
-      "\u001b[36m•\u001b[39m Centering for: \u001b[34mall_predictors()\u001b[39m\n",
+      "\u001b[36m•\u001b[39m Centering for: \u001b[34mplayed_hours\u001b[39m\n",
       "\n"
      ]
     }
    ],
    "source": [
     "players_recipe<-recipe(subscribe~experience+played_hours, data=players_train)|>\n",
-    "step_scale(all_predictors())|>\n",
-    "step_center(all_predictors())\n",
+    "step_scale(played_hours)|>\n",
+    "step_center(played_hours)\n",
     "players_recipe\n"
    ]
   },
@@ -2412,6 +2412,55 @@
    "cell_type": "code",
    "execution_count": null,
    "id": "dbda875f-7cf5-47ca-b963-0b896494d78a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Next we will create classification model using K-Nearest. We will use tune to ensure that the best k value is used. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 58,
+   "id": "1602c287-0667-41a8-95c7-db3d51845723",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "K-Nearest Neighbor Model Specification (classification)\n",
+       "\n",
+       "Main Arguments:\n",
+       "  neighbors = tune()\n",
+       "  weight_func = rectangular\n",
+       "\n",
+       "Computational engine: kknn \n"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "knn_spec<-nearest_neighbor(weight_func=\"rectangular\", neighbors=tune())|>\n",
+    "          set_engine(\"kknn\")|>\n",
+    "          set_mode(\"classification\")\n",
+    "          knn_spec"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "3b2767cb-1109-4895-a4d2-e4840e016f45",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "1-50 by 2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "7084067f-f416-410d-a461-e47019a5c562",
    "metadata": {},
    "outputs": [],
    "source": []
