@@ -3016,7 +3016,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 99,
+   "execution_count": 101,
    "id": "79dd947e-25c7-4576-85e5-3b55766d52a2",
    "metadata": {},
    "outputs": [
@@ -3069,12 +3069,73 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "id": "1041d14e-2576-4e7f-8e04-6c6958dd038a",
+   "metadata": {},
+   "source": [
+    "Assess the precision of the best model."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 102,
+   "id": "e39265be-025f-4130-bdcd-f165f86819df",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<style>\n",
+       ".list-inline {list-style: none; margin:0; padding: 0}\n",
+       ".list-inline>li {display: inline-block}\n",
+       ".list-inline>li:not(:last-child)::after {content: \"\\00b7\"; padding: 0 .5ex}\n",
+       "</style>\n",
+       "<ol class=list-inline><li>'FALSE'</li><li>'TRUE'</li></ol>\n"
+      ],
+      "text/latex": [
+       "\\begin{enumerate*}\n",
+       "\\item 'FALSE'\n",
+       "\\item 'TRUE'\n",
+       "\\end{enumerate*}\n"
+      ],
+      "text/markdown": [
+       "1. 'FALSE'\n",
+       "2. 'TRUE'\n",
+       "\n",
+       "\n"
+      ],
+      "text/plain": [
+       "[1] \"FALSE\" \"TRUE\" "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "players_prediction|>pull(subscribe)|>levels()"
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": null,
-   "id": "8dc4a3d0-0702-4c9c-8b56-839f62603841",
+   "id": "22344a98-5a21-427a-9119-e1b71e954459",
    "metadata": {},
    "outputs": [],
-   "source": []
+   "source": [
+    "Assess the precision of the best model."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "dd1baba9-ca74-460f-ae71-bf49cd0d7bc5",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "  accuracy<-players_prediction|>\n",
+    "precision(truth=subscribe, estimate=.pred_class, even)"
+   ]
   }
  ],
  "metadata": {
