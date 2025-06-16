@@ -1813,7 +1813,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 66,
+   "execution_count": 83,
    "id": "52201a9d-df12-4c0a-b7f1-decc6c699bdd",
    "metadata": {},
    "outputs": [
@@ -2336,7 +2336,7 @@
     "\n",
     "players_split<-initial_split(players_small, prop=0.75, strata=subscribe)\n",
     "players_train<-training(players_split)\n",
-    "players_testing<-testing(players_split)\n",
+    "players_test<-testing(players_split)\n",
     "\n",
     "players_train\n",
     "players_testing"
@@ -2352,7 +2352,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 67,
+   "execution_count": 84,
    "id": "f1b2e9b4-2dce-4db9-a81e-fe51a57cb4aa",
    "metadata": {},
    "outputs": [],
@@ -2370,7 +2370,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 68,
+   "execution_count": 85,
    "id": "b771a192-f0f1-406c-81b7-df9dd7dedfb9",
    "metadata": {},
    "outputs": [
@@ -2419,7 +2419,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 74,
+   "execution_count": 86,
    "id": "1602c287-0667-41a8-95c7-db3d51845723",
    "metadata": {},
    "outputs": [
@@ -2456,7 +2456,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 75,
+   "execution_count": 87,
    "id": "7084067f-f416-410d-a461-e47019a5c562",
    "metadata": {},
    "outputs": [],
@@ -2474,7 +2474,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 79,
+   "execution_count": 88,
    "id": "03e54c4f-cd33-4a86-8a4c-58c559e883e9",
    "metadata": {},
    "outputs": [
@@ -2635,7 +2635,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 80,
+   "execution_count": 89,
    "id": "6b28872f-e0fd-4208-bd75-7a2983ff5ada",
    "metadata": {},
    "outputs": [
@@ -2676,13 +2676,98 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 90,
    "id": "99cbf8b5-22cc-41bf-ab5a-c0ad1ef9782e",
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "K-Nearest Neighbor Model Specification (classification)\n",
+       "\n",
+       "Main Arguments:\n",
+       "  neighbors = best_k\n",
+       "  weight_func = rectangular\n",
+       "\n",
+       "Computational engine: kknn \n"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
    "source": [
-    "test_model<-recipe"
+    "test_model<-nearest_neighbor(weight_func=\"rectangular\", neighbors=best_k)|>\n",
+    "          set_engine(\"kknn\")|>\n",
+    "          set_mode(\"classification\")\n",
+    "          test_model"
    ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f366b06b-ceaf-404f-9330-cece760372aa",
+   "metadata": {},
+   "source": [
+    "Its time to create a workflow and fit the model with the best k value and recipe onto  our training data. This is to retrain the K-NN classifier on the entire training data using the specific k value. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 93,
+   "id": "0776ede9-5abc-4d1a-91c7-408c5917d432",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "══ Workflow [trained] ══════════════════════════════════════════════════════════\n",
+       "\u001b[3mPreprocessor:\u001b[23m Recipe\n",
+       "\u001b[3mModel:\u001b[23m nearest_neighbor()\n",
+       "\n",
+       "── Preprocessor ────────────────────────────────────────────────────────────────\n",
+       "2 Recipe Steps\n",
+       "\n",
+       "• step_scale()\n",
+       "• step_center()\n",
+       "\n",
+       "── Model ───────────────────────────────────────────────────────────────────────\n",
+       "\n",
+       "Call:\n",
+       "kknn::train.kknn(formula = ..y ~ ., data = data, ks = min_rows(39,     data, 5), kernel = ~\"rectangular\")\n",
+       "\n",
+       "Type of response variable: nominal\n",
+       "Minimal misclassification: 0.2721088\n",
+       "Best kernel: rectangular\n",
+       "Best k: 39"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "players_fit<-workflow()|>\n",
+    "add_model(test_model)|>\n",
+    "add_recipe(players_recipe)|>\n",
+    "fit(data=players_train)\n",
+    "players_fit"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "bf6fbd68-f713-4648-950a-c751f3067944",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8b10715a-7745-4297-9673-b1e1a114655f",
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
