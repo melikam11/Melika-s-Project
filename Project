@@ -2474,18 +2474,145 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 78,
+   "execution_count": 79,
    "id": "03e54c4f-cd33-4a86-8a4c-58c559e883e9",
    "metadata": {},
    "outputs": [
     {
-     "ename": "ERROR",
-     "evalue": "Error in eval(expr, envir, enclos): object '.metric' not found\n",
-     "output_type": "error",
-     "traceback": [
-      "Error in eval(expr, envir, enclos): object '.metric' not found\nTraceback:\n",
-      "1. filter(.metric == \"accuracy\")"
-     ]
+     "data": {
+      "text/html": [
+       "<table class=\"dataframe\">\n",
+       "<caption>A tibble: 25 × 7</caption>\n",
+       "<thead>\n",
+       "\t<tr><th scope=col>neighbors</th><th scope=col>.metric</th><th scope=col>.estimator</th><th scope=col>mean</th><th scope=col>n</th><th scope=col>std_err</th><th scope=col>.config</th></tr>\n",
+       "\t<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>\n",
+       "</thead>\n",
+       "<tbody>\n",
+       "\t<tr><td> 1</td><td>accuracy</td><td>binary</td><td>0.4691461</td><td>5</td><td>0.038540221</td><td>Preprocessor1_Model01</td></tr>\n",
+       "\t<tr><td> 3</td><td>accuracy</td><td>binary</td><td>0.4898686</td><td>5</td><td>0.030816578</td><td>Preprocessor1_Model02</td></tr>\n",
+       "\t<tr><td> 5</td><td>accuracy</td><td>binary</td><td>0.5660427</td><td>5</td><td>0.027738233</td><td>Preprocessor1_Model03</td></tr>\n",
+       "\t<tr><td> 7</td><td>accuracy</td><td>binary</td><td>0.5991461</td><td>5</td><td>0.028694759</td><td>Preprocessor1_Model04</td></tr>\n",
+       "\t<tr><td> 9</td><td>accuracy</td><td>binary</td><td>0.6457964</td><td>5</td><td>0.011420311</td><td>Preprocessor1_Model05</td></tr>\n",
+       "\t<tr><td>11</td><td>accuracy</td><td>binary</td><td>0.6810345</td><td>5</td><td>0.017384464</td><td>Preprocessor1_Model06</td></tr>\n",
+       "\t<tr><td>13</td><td>accuracy</td><td>binary</td><td>0.6679310</td><td>5</td><td>0.029550738</td><td>Preprocessor1_Model07</td></tr>\n",
+       "\t<tr><td>15</td><td>accuracy</td><td>binary</td><td>0.6745977</td><td>5</td><td>0.030223766</td><td>Preprocessor1_Model08</td></tr>\n",
+       "\t<tr><td>17</td><td>accuracy</td><td>binary</td><td>0.7145977</td><td>5</td><td>0.018837604</td><td>Preprocessor1_Model09</td></tr>\n",
+       "\t<tr><td>19</td><td>accuracy</td><td>binary</td><td>0.7145977</td><td>5</td><td>0.024022439</td><td>Preprocessor1_Model10</td></tr>\n",
+       "\t<tr><td>21</td><td>accuracy</td><td>binary</td><td>0.7212644</td><td>5</td><td>0.011332191</td><td>Preprocessor1_Model11</td></tr>\n",
+       "\t<tr><td>23</td><td>accuracy</td><td>binary</td><td>0.7279310</td><td>5</td><td>0.014597701</td><td>Preprocessor1_Model12</td></tr>\n",
+       "\t<tr><td>25</td><td>accuracy</td><td>binary</td><td>0.7345977</td><td>5</td><td>0.012823177</td><td>Preprocessor1_Model13</td></tr>\n",
+       "\t<tr><td>27</td><td>accuracy</td><td>binary</td><td>0.7345977</td><td>5</td><td>0.012823177</td><td>Preprocessor1_Model14</td></tr>\n",
+       "\t<tr><td>29</td><td>accuracy</td><td>binary</td><td>0.7345977</td><td>5</td><td>0.012823177</td><td>Preprocessor1_Model15</td></tr>\n",
+       "\t<tr><td>31</td><td>accuracy</td><td>binary</td><td>0.7279310</td><td>5</td><td>0.010098602</td><td>Preprocessor1_Model16</td></tr>\n",
+       "\t<tr><td>33</td><td>accuracy</td><td>binary</td><td>0.7279310</td><td>5</td><td>0.010098602</td><td>Preprocessor1_Model17</td></tr>\n",
+       "\t<tr><td>35</td><td>accuracy</td><td>binary</td><td>0.7279310</td><td>5</td><td>0.010098602</td><td>Preprocessor1_Model18</td></tr>\n",
+       "\t<tr><td>37</td><td>accuracy</td><td>binary</td><td>0.7279310</td><td>5</td><td>0.010098602</td><td>Preprocessor1_Model19</td></tr>\n",
+       "\t<tr><td>39</td><td>accuracy</td><td>binary</td><td>0.7348276</td><td>5</td><td>0.004190282</td><td>Preprocessor1_Model20</td></tr>\n",
+       "\t<tr><td>41</td><td>accuracy</td><td>binary</td><td>0.7348276</td><td>5</td><td>0.004190282</td><td>Preprocessor1_Model21</td></tr>\n",
+       "\t<tr><td>43</td><td>accuracy</td><td>binary</td><td>0.7348276</td><td>5</td><td>0.004190282</td><td>Preprocessor1_Model22</td></tr>\n",
+       "\t<tr><td>45</td><td>accuracy</td><td>binary</td><td>0.7348276</td><td>5</td><td>0.004190282</td><td>Preprocessor1_Model23</td></tr>\n",
+       "\t<tr><td>47</td><td>accuracy</td><td>binary</td><td>0.7348276</td><td>5</td><td>0.004190282</td><td>Preprocessor1_Model24</td></tr>\n",
+       "\t<tr><td>49</td><td>accuracy</td><td>binary</td><td>0.7348276</td><td>5</td><td>0.004190282</td><td>Preprocessor1_Model25</td></tr>\n",
+       "</tbody>\n",
+       "</table>\n"
+      ],
+      "text/latex": [
+       "A tibble: 25 × 7\n",
+       "\\begin{tabular}{lllllll}\n",
+       " neighbors & .metric & .estimator & mean & n & std\\_err & .config\\\\\n",
+       " <dbl> & <chr> & <chr> & <dbl> & <int> & <dbl> & <chr>\\\\\n",
+       "\\hline\n",
+       "\t  1 & accuracy & binary & 0.4691461 & 5 & 0.038540221 & Preprocessor1\\_Model01\\\\\n",
+       "\t  3 & accuracy & binary & 0.4898686 & 5 & 0.030816578 & Preprocessor1\\_Model02\\\\\n",
+       "\t  5 & accuracy & binary & 0.5660427 & 5 & 0.027738233 & Preprocessor1\\_Model03\\\\\n",
+       "\t  7 & accuracy & binary & 0.5991461 & 5 & 0.028694759 & Preprocessor1\\_Model04\\\\\n",
+       "\t  9 & accuracy & binary & 0.6457964 & 5 & 0.011420311 & Preprocessor1\\_Model05\\\\\n",
+       "\t 11 & accuracy & binary & 0.6810345 & 5 & 0.017384464 & Preprocessor1\\_Model06\\\\\n",
+       "\t 13 & accuracy & binary & 0.6679310 & 5 & 0.029550738 & Preprocessor1\\_Model07\\\\\n",
+       "\t 15 & accuracy & binary & 0.6745977 & 5 & 0.030223766 & Preprocessor1\\_Model08\\\\\n",
+       "\t 17 & accuracy & binary & 0.7145977 & 5 & 0.018837604 & Preprocessor1\\_Model09\\\\\n",
+       "\t 19 & accuracy & binary & 0.7145977 & 5 & 0.024022439 & Preprocessor1\\_Model10\\\\\n",
+       "\t 21 & accuracy & binary & 0.7212644 & 5 & 0.011332191 & Preprocessor1\\_Model11\\\\\n",
+       "\t 23 & accuracy & binary & 0.7279310 & 5 & 0.014597701 & Preprocessor1\\_Model12\\\\\n",
+       "\t 25 & accuracy & binary & 0.7345977 & 5 & 0.012823177 & Preprocessor1\\_Model13\\\\\n",
+       "\t 27 & accuracy & binary & 0.7345977 & 5 & 0.012823177 & Preprocessor1\\_Model14\\\\\n",
+       "\t 29 & accuracy & binary & 0.7345977 & 5 & 0.012823177 & Preprocessor1\\_Model15\\\\\n",
+       "\t 31 & accuracy & binary & 0.7279310 & 5 & 0.010098602 & Preprocessor1\\_Model16\\\\\n",
+       "\t 33 & accuracy & binary & 0.7279310 & 5 & 0.010098602 & Preprocessor1\\_Model17\\\\\n",
+       "\t 35 & accuracy & binary & 0.7279310 & 5 & 0.010098602 & Preprocessor1\\_Model18\\\\\n",
+       "\t 37 & accuracy & binary & 0.7279310 & 5 & 0.010098602 & Preprocessor1\\_Model19\\\\\n",
+       "\t 39 & accuracy & binary & 0.7348276 & 5 & 0.004190282 & Preprocessor1\\_Model20\\\\\n",
+       "\t 41 & accuracy & binary & 0.7348276 & 5 & 0.004190282 & Preprocessor1\\_Model21\\\\\n",
+       "\t 43 & accuracy & binary & 0.7348276 & 5 & 0.004190282 & Preprocessor1\\_Model22\\\\\n",
+       "\t 45 & accuracy & binary & 0.7348276 & 5 & 0.004190282 & Preprocessor1\\_Model23\\\\\n",
+       "\t 47 & accuracy & binary & 0.7348276 & 5 & 0.004190282 & Preprocessor1\\_Model24\\\\\n",
+       "\t 49 & accuracy & binary & 0.7348276 & 5 & 0.004190282 & Preprocessor1\\_Model25\\\\\n",
+       "\\end{tabular}\n"
+      ],
+      "text/markdown": [
+       "\n",
+       "A tibble: 25 × 7\n",
+       "\n",
+       "| neighbors &lt;dbl&gt; | .metric &lt;chr&gt; | .estimator &lt;chr&gt; | mean &lt;dbl&gt; | n &lt;int&gt; | std_err &lt;dbl&gt; | .config &lt;chr&gt; |\n",
+       "|---|---|---|---|---|---|---|\n",
+       "|  1 | accuracy | binary | 0.4691461 | 5 | 0.038540221 | Preprocessor1_Model01 |\n",
+       "|  3 | accuracy | binary | 0.4898686 | 5 | 0.030816578 | Preprocessor1_Model02 |\n",
+       "|  5 | accuracy | binary | 0.5660427 | 5 | 0.027738233 | Preprocessor1_Model03 |\n",
+       "|  7 | accuracy | binary | 0.5991461 | 5 | 0.028694759 | Preprocessor1_Model04 |\n",
+       "|  9 | accuracy | binary | 0.6457964 | 5 | 0.011420311 | Preprocessor1_Model05 |\n",
+       "| 11 | accuracy | binary | 0.6810345 | 5 | 0.017384464 | Preprocessor1_Model06 |\n",
+       "| 13 | accuracy | binary | 0.6679310 | 5 | 0.029550738 | Preprocessor1_Model07 |\n",
+       "| 15 | accuracy | binary | 0.6745977 | 5 | 0.030223766 | Preprocessor1_Model08 |\n",
+       "| 17 | accuracy | binary | 0.7145977 | 5 | 0.018837604 | Preprocessor1_Model09 |\n",
+       "| 19 | accuracy | binary | 0.7145977 | 5 | 0.024022439 | Preprocessor1_Model10 |\n",
+       "| 21 | accuracy | binary | 0.7212644 | 5 | 0.011332191 | Preprocessor1_Model11 |\n",
+       "| 23 | accuracy | binary | 0.7279310 | 5 | 0.014597701 | Preprocessor1_Model12 |\n",
+       "| 25 | accuracy | binary | 0.7345977 | 5 | 0.012823177 | Preprocessor1_Model13 |\n",
+       "| 27 | accuracy | binary | 0.7345977 | 5 | 0.012823177 | Preprocessor1_Model14 |\n",
+       "| 29 | accuracy | binary | 0.7345977 | 5 | 0.012823177 | Preprocessor1_Model15 |\n",
+       "| 31 | accuracy | binary | 0.7279310 | 5 | 0.010098602 | Preprocessor1_Model16 |\n",
+       "| 33 | accuracy | binary | 0.7279310 | 5 | 0.010098602 | Preprocessor1_Model17 |\n",
+       "| 35 | accuracy | binary | 0.7279310 | 5 | 0.010098602 | Preprocessor1_Model18 |\n",
+       "| 37 | accuracy | binary | 0.7279310 | 5 | 0.010098602 | Preprocessor1_Model19 |\n",
+       "| 39 | accuracy | binary | 0.7348276 | 5 | 0.004190282 | Preprocessor1_Model20 |\n",
+       "| 41 | accuracy | binary | 0.7348276 | 5 | 0.004190282 | Preprocessor1_Model21 |\n",
+       "| 43 | accuracy | binary | 0.7348276 | 5 | 0.004190282 | Preprocessor1_Model22 |\n",
+       "| 45 | accuracy | binary | 0.7348276 | 5 | 0.004190282 | Preprocessor1_Model23 |\n",
+       "| 47 | accuracy | binary | 0.7348276 | 5 | 0.004190282 | Preprocessor1_Model24 |\n",
+       "| 49 | accuracy | binary | 0.7348276 | 5 | 0.004190282 | Preprocessor1_Model25 |\n",
+       "\n"
+      ],
+      "text/plain": [
+       "   neighbors .metric  .estimator mean      n std_err     .config              \n",
+       "1   1        accuracy binary     0.4691461 5 0.038540221 Preprocessor1_Model01\n",
+       "2   3        accuracy binary     0.4898686 5 0.030816578 Preprocessor1_Model02\n",
+       "3   5        accuracy binary     0.5660427 5 0.027738233 Preprocessor1_Model03\n",
+       "4   7        accuracy binary     0.5991461 5 0.028694759 Preprocessor1_Model04\n",
+       "5   9        accuracy binary     0.6457964 5 0.011420311 Preprocessor1_Model05\n",
+       "6  11        accuracy binary     0.6810345 5 0.017384464 Preprocessor1_Model06\n",
+       "7  13        accuracy binary     0.6679310 5 0.029550738 Preprocessor1_Model07\n",
+       "8  15        accuracy binary     0.6745977 5 0.030223766 Preprocessor1_Model08\n",
+       "9  17        accuracy binary     0.7145977 5 0.018837604 Preprocessor1_Model09\n",
+       "10 19        accuracy binary     0.7145977 5 0.024022439 Preprocessor1_Model10\n",
+       "11 21        accuracy binary     0.7212644 5 0.011332191 Preprocessor1_Model11\n",
+       "12 23        accuracy binary     0.7279310 5 0.014597701 Preprocessor1_Model12\n",
+       "13 25        accuracy binary     0.7345977 5 0.012823177 Preprocessor1_Model13\n",
+       "14 27        accuracy binary     0.7345977 5 0.012823177 Preprocessor1_Model14\n",
+       "15 29        accuracy binary     0.7345977 5 0.012823177 Preprocessor1_Model15\n",
+       "16 31        accuracy binary     0.7279310 5 0.010098602 Preprocessor1_Model16\n",
+       "17 33        accuracy binary     0.7279310 5 0.010098602 Preprocessor1_Model17\n",
+       "18 35        accuracy binary     0.7279310 5 0.010098602 Preprocessor1_Model18\n",
+       "19 37        accuracy binary     0.7279310 5 0.010098602 Preprocessor1_Model19\n",
+       "20 39        accuracy binary     0.7348276 5 0.004190282 Preprocessor1_Model20\n",
+       "21 41        accuracy binary     0.7348276 5 0.004190282 Preprocessor1_Model21\n",
+       "22 43        accuracy binary     0.7348276 5 0.004190282 Preprocessor1_Model22\n",
+       "23 45        accuracy binary     0.7348276 5 0.004190282 Preprocessor1_Model23\n",
+       "24 47        accuracy binary     0.7348276 5 0.004190282 Preprocessor1_Model24\n",
+       "25 49        accuracy binary     0.7348276 5 0.004190282 Preprocessor1_Model25"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
     }
    ],
    "source": [
@@ -2493,26 +2620,61 @@
     "add_model(knn_spec)|>\n",
     "add_recipe(players_recipe)|>\n",
     "tune_grid(resamples=players_vfold, grid=k_lots)|>\n",
-    "collect_metrics()\n",
+    "collect_metrics()|>\n",
     "filter(.metric==\"accuracy\")\n",
     "players_workflow"
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "ccd62c6a-7254-4982-846e-793a5cfe1e78",
+   "cell_type": "markdown",
+   "id": "d57869df-0878-4fcf-ab49-f9d411074b3c",
    "metadata": {},
-   "outputs": [],
-   "source": []
+   "source": [
+    "Filter and find the best k value."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 80,
+   "id": "6b28872f-e0fd-4208-bd75-7a2983ff5ada",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "39"
+      ],
+      "text/latex": [
+       "39"
+      ],
+      "text/markdown": [
+       "39"
+      ],
+      "text/plain": [
+       "[1] 39"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "best_k<-players_workflow|>\n",
+    "arrange(desc(mean))|>\n",
+    "head(1)|>\n",
+    "pull(neighbors)\n",
+    "best_k"
+   ]
   },
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "6b28872f-e0fd-4208-bd75-7a2983ff5ada",
+   "id": "e6baf161-f1a1-4e3b-9602-f62aad4ed8dd",
    "metadata": {},
    "outputs": [],
-   "source": []
+   "source": [
+    "Now that we have created our model and found our best k value we ca"
+   ]
   }
  ],
  "metadata": {
