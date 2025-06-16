@@ -2415,7 +2415,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "Next we will create classification model using K-Nearest. We will use tune to ensure that the best k value is used. "
+    "Next we will create classification model using K-nearest neighbors. We will use tune to ensure that the best k value is used. "
    ]
   },
   {
@@ -2454,13 +2454,23 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "1-50 by 2"
+    "We now will specify the range of k values we would like our model to evaluate . "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "id": "7084067f-f416-410d-a461-e47019a5c562",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "k_lots <-tibble(neighbors=seq(from=1, to=50, by=2))"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "7084067f-f416-410d-a461-e47019a5c562",
+   "id": "a7cb51b8-4197-4313-ae34-7443f4f01a20",
    "metadata": {},
    "outputs": [],
    "source": []
