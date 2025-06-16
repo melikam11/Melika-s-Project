@@ -772,7 +772,7 @@
    "id": "f702deeb-6190-4e71-a85b-99ae87f676d5",
    "metadata": {},
    "source": [
-    "Now to better visualize the relationship between the predict variables and our response variable we will plot two graphs (One bar graph and one hsi. One graph will show the relationship between experience and subscribe and the second graph will show the relationship between hours played and subscribe. "
+    "Now to better visualize the relationship between the predict variables and our response variable we will plot two graphs (One bar graph and one histogram). One graph will show the relationship between experience and subscribe and the second graph will show the relationship between hours played and subscribe. "
    ]
   },
   {
@@ -1803,12 +1803,12 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "ebd95a95-32c5-436d-a4c2-d2991a38e8eb",
+   "cell_type": "markdown",
+   "id": "3d074b7c-18ea-4cd0-80bc-24da4564d7ea",
    "metadata": {},
-   "outputs": [],
-   "source": []
+   "source": [
+    "Now we will begin creating our model. The first step is to split our data into training and testing set. We need to also set seed to make sure that the random numbers being choosen are reproducible. "
+   ]
   },
   {
    "cell_type": "code",
@@ -1816,7 +1816,14 @@
    "id": "52201a9d-df12-4c0a-b7f1-decc6c699bdd",
    "metadata": {},
    "outputs": [],
-   "source": []
+   "source": [
+    "set.seet(11)\n",
+    "library(tidymodels)\n",
+    "\n",
+    "players_split<-initial_split(prop=0.75, strata=subscribe)\n",
+    "players_train<-training(players_split)\n",
+    "players_train<-training(players_split)"
+   ]
   }
  ],
  "metadata": {
